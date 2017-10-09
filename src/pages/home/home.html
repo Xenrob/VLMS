@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome {{userDetails.name}}!</h2>
+
+  <p>-->>Still need to work on reg db and search...</p>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+
+
+  <ion-card *ngFor="let item of dataSet">
+    <ion-card-content>
+      <p [innerHTML]="item.vInfo"></p>
+      <p>{{item}}</p>
+      <span>{{item.created}}</span>
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button color="primary" (click)="logout()">Logout</button>
+</ion-content>
